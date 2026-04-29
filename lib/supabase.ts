@@ -10,7 +10,9 @@ export type BlogPost = {
 export type BlogPostInput = Pick<BlogPost, "author" | "folder" | "title" | "content">;
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabaseAnonKey =
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ??
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
 const cleanSupabaseUrl = supabaseUrl?.trim();
 const cleanSupabaseAnonKey = supabaseAnonKey?.trim();
