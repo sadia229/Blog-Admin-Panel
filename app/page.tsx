@@ -71,8 +71,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const savedAuth = window.localStorage.getItem("dart-hot-topics-admin-auth");
-    if (!requireAdminLogin || savedAuth === "true") {
+    if (!requireAdminLogin) {
       setAuthenticated(true);
     }
     setAuthChecked(true);
@@ -231,7 +230,6 @@ export default function Home() {
 
   function handleLogout() {
     setAuthenticated(false);
-    window.localStorage.removeItem("dart-hot-topics-admin-auth");
   }
 
   function handleLogin(event: FormEvent<HTMLFormElement>) {
@@ -250,7 +248,6 @@ export default function Home() {
       loginPassword.trim() === adminPassword
     ) {
       setAuthenticated(true);
-      window.localStorage.setItem("dart-hot-topics-admin-auth", "true");
       setLoginUsername("");
       setLoginPassword("");
       setLoginNotice("");
