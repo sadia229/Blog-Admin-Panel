@@ -306,9 +306,6 @@ export default function Home() {
           <div>
             <h3>ডার্ট ডকুমেন্টেশন</h3>
           </div>
-          <div className="status" data-online={isSupabaseConfigured}>
-            {isSupabaseConfigured ? "Supabase connected" : "Local mode"}
-          </div>
         </section>
 
         {loginNotice ? <p className="notice">{loginNotice}</p> : null}
@@ -351,9 +348,6 @@ export default function Home() {
             <h3>ডার্ট ডকুমেন্টেশন</h3>
           </div>
           <div className="statusRow">
-            <div className="status" data-online={isSupabaseConfigured}>
-              {isSupabaseConfigured ? "Supabase connected" : "Local mode"}
-            </div>
             {requireAdminLogin ? (
               <button className="logoutButton" type="button" onClick={handleLogout}>
                 Logout
@@ -455,18 +449,6 @@ export default function Home() {
                 placeholder="Enter author name"
               />
             </label>
-
-            {title.trim().length > 3 ? (
-              <button
-                type="button"
-                className="aiButton"
-                onClick={handleGenerate}
-                disabled={generating}
-              >
-                {generating ? "Generating..." : "✨ Generate with AI"}
-              </button>
-            ) : null}
-
             <label>
               Content
               <textarea
